@@ -1,4 +1,4 @@
-#from datetime import strftime
+from datetime import strftime
 
 
 class Tweet:
@@ -6,7 +6,7 @@ class Tweet:
         self.platform = "twitter"
         self.review_text = tweet_data.get('text', '')
         self.comment_id = tweet_data.get('id', '')
-        #self.tweet_date = strptime(tweet_data.get('created_at', ''), '%a %b %d %H:%M:%S %z %Y').strftime('%d/%m/%Y')
+        self.tweet_date = strftime(tweet_data.get('created_at', ''), '%a %b %d %H:%M:%S %z %Y').strftime('%d/%m/%Y')
         self.tweet_author = tweet_data.get('author_id', '')
 
     def __str__(self):
