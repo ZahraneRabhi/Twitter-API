@@ -37,5 +37,5 @@ def fetch_tweets(bearer_token, keyword):
                     'tweet_author': tweet.tweet_author,
                     'platform': tweet.platform
                     })
-                
+
     return tweets_data

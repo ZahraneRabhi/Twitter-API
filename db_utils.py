@@ -58,8 +58,8 @@ def add_comment_to_sql_server(server_name, database_name, comment):
     
     select = "SELECT * FROM comment"
     try: 
-        data = db.execute(query) # print(data) 
-        data = db.execute(select) # print(data)
+        data = db.execute(query) 
+        data = db.execute(select)
         print(f"\033[92m{'-'*40}\nRow Inserted/Updated successfully to {database_name}\n{'-'*40}\033[0m")  
     except pyodbc.Error as e:
         print(f"\033[91m{'-'*40}\nError {e}\n{'-'*40}\033[0m")          

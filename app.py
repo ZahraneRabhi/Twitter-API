@@ -1,14 +1,14 @@
 from threading import Thread
 from time import sleep
 
-from db_utils import *
-from utils import fetch_tweets
+from db_utils import add_comment_to_sql_server
+from tweet_utils import fetch_tweets
 from config import *
 
-
+#
 def background_task():
     """
-    fetching tweets  from Twitter .
+    Continuously fetches tweets from Twitter and adds them to an SQL Server database.
     """
     latest_twitter_comments = fetch_tweets(TWITTER_BEARER_TOKEN, keyword=TWITTER_KEYWORD)
 
@@ -23,7 +23,7 @@ def background_task():
             difference = [comment for comment in new_twitter_comments if comment not in latest_twitter_comments]
 
             for new_comment in difference:
-                print(f"New review: {new_comment}") # You can delete it.
+                print(f"New review: {new_comment}") # you can delete it, usefull to monitor the tweet fetching flow tho
                 add_comment_to_sql_server(SERVER_NAME, DATABASE_NAME, new_comment)
             latest_twitter_comments = new_twitter_comments
         sleep(10)
