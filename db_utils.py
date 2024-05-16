@@ -12,17 +12,10 @@ def verify_connection_db(server_name, database_name):
     print(f"{'-'*40}\nConnecting to  {server_name}...\n{'-'*40}")  
     connection_string = f"DRIVER={{SQL Server}};SERVER={server_name};DATABASE={database_name};Trusted_Connection=yes"
     connection = pyodbc.connect(connection_string)
-    db = connection.cursor()
-
-    try: 
-        data = db.execute("select 1")
-        print(f"\033[92m{'-'*40}\nConnected successfully to {server_name}\n{'-'*40}\033[0m")  
-    except pyodbc.Error as e:
-        print(f"\033[91m{'-'*40}\nConnection failed to {server_name}\n{'-'*40}\033[0m") 
-        print(e)
     connection.close()
-
-
+    print(f"\033[92m{'-'*40}\nConnected successfully to {server_name}\n{'-'*40}\033[0m")  
+    
+    
 def add_comment_to_sql_server(server_name, database_name, comment):
     """
     Inserts or updates comments data into the specified SQL Server database and server.
