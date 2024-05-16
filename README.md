@@ -31,7 +31,11 @@ Create a Twitter Developer account and create an application to get your API key
 
 ***2. Set up your database:***
 Create the table ***'comment'*** in your database of choice
-![alt text](documentation/comment_table.png)
+
+<div style="text-align:center">
+  <img src="documentation/comment_table.png" alt="Comment Table">
+</div>
+
 
 ***3. Edit the config.py file:***
 
